@@ -13,14 +13,13 @@ import org.w3c.dom.NodeList;
 
 class JmxParser {
     public static void main(String[] args) {
-        System.out.println("Hello");
 
         try {
             DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
 
             DocumentBuilder builder = builderFactory.newDocumentBuilder();
             
-            Document xmlDocument = builder.parse(new File("path/to/test.jmx"));
+            Document xmlDocument = builder.parse(new File("test-plan-folder/test_plan_k6_test.jmx"));
             
             XPath xPath = XPathFactory.newInstance().newXPath();
             String expression = "//ThreadGroup/@testname | //ThreadGroup/stringProp[@name='ThreadGroup.num_threads']/text()";
@@ -34,8 +33,5 @@ class JmxParser {
             e.printStackTrace();
         }
     
-
-
-
     }
 }
